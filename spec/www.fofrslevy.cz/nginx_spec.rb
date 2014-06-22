@@ -7,8 +7,8 @@ describe 'Sheldon 6artisans webserver' do
   end
 
   it 'is running' do
-    expect(service 'httpd').to be_enabled
-    expect(service 'httpd').to be_running
+    expect(service 'nginx').to be_enabled
+    expect(service 'nginx').to be_running
   end
 
   xit 'responds to request with response from rails app' do
