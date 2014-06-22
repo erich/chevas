@@ -13,7 +13,7 @@ describe 'Sheldon 6artisans webserver' do
 
   xit 'responds to request with response from rails app' do
     #think about adding domains to host file
-    expect(command 'curl http://www.fofrslevy.cz').to return_stdout(/.*<title>Fofrslevy.cz<\/title>.*/)
+    expect(command 'curl http://localhost').to return_stdout(/.*<title>RubyGems.org | your community gem host<\/title>.*/)
   end
 
 end
