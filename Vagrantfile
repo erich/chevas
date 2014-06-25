@@ -91,7 +91,32 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #chef.roles_path = "../my-recipes/roles"
     #chef.data_bags_path = "../my-recipes/data_bags"
     #chef.environments_path = "./environments"
-    chef.run_list = "recipe[nginx]"
+    chef.json = {
+      'rvm' => {
+        'installer_url' => 'https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer',
+        'branch' => 'none',
+        'version' => '1.3.0',
+        'user_installs' => [{        
+          'user' => 'rubygems_app',
+          'default_ruby' => 'ruby-2.0.0@rubygems_app',
+          'global_gems'     => [
+                { 'name'    => 'bundler',
+                  'version' => '1.3.0'
+                },
+            #    { 'name'    => 'unicorn',
+            #      'version' => '4.8.3'
+            #    },
+            #    { 'name'    => 'rake' },
+            #    { 'name'    => 'minitest', 
+            #      'version' => '5.3.5'},
+            #    { 'name'    => 'rubygems-bundler',
+            #      'action'  => 'remove'
+            #    }
+              ]          
+        }]
+      }
+    }
+    chef.run_list = ["recipe[rvm::user]","recipe[rubygems_app]"]
     chef.verbose_logging = true
     #chef.add_recipe "mysql"
     #chef.add_role "web"
