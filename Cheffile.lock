@@ -17,7 +17,6 @@ SITE
     bluepill (2.3.1)
       rsyslog (>= 0.0.0)
     build-essential (2.0.4)
-    chef-sugar (2.0.0)
     chef_gem (0.1.0)
     iptables (0.13.2)
     logrotate (1.6.0)
@@ -29,16 +28,10 @@ SITE
       runit (~> 1.2)
       yum-epel (~> 0.3)
     ohai (2.0.1)
-    openssl (2.0.0)
-      chef-sugar (>= 0.0.0)
     pacman (1.1.1)
     passenger_apache2 (2.2.0)
       apache2 (>= 1.0.4)
       build-essential (>= 0.0.0)
-    postgresql (3.4.1)
-      apt (>= 1.9.0)
-      build-essential (>= 0.0.0)
-      openssl (>= 0.0.0)
     rsyslog (1.12.2)
     runit (1.5.10)
       build-essential (>= 0.0.0)
@@ -55,7 +48,7 @@ SITE
 GIT
   remote: https://github.com/erich/rubygems_app.git
   ref: master
-  sha: 20bb1a499396d9d0182cf60b1d48e26670899667
+  sha: 8a6930219f97714640f66fd0f0dec7b0e7e1fb4b
   specs:
     rubygems_app (0.1.0)
       application_ruby (>= 0.0.0)
@@ -66,7 +59,5 @@ GIT
 
 DEPENDENCIES
   nginx (>= 0)
-  postgresql (>= 0)
   rubygems_app (>= 0)
-  runit (>= 0)
 
