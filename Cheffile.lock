@@ -48,7 +48,7 @@ SITE
 GIT
   remote: https://github.com/erich/rubygems_app.git
   ref: master
-  sha: f47d5068f5b4201f7e02b91b19a50856b11237ce
+  sha: 66275f20790cfdacc68df6e3cc8ae90c41c032f4
   specs:
     rubygems_app (0.1.0)
       application_ruby (>= 0.0.0)

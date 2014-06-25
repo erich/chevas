@@ -119,7 +119,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         }]
       }
     }
-    chef.run_list = ["recipe[rvm::user]","recipe[rubygems_app]"]
+    chef.run_list = ["recipe[rubygems_app::basic_structure]","recipe[rvm::user]","recipe[rubygems_app]"]
     #chef.run_list = ["recipe[rubygems_app]","recipe[rvm::user]"]
     chef.verbose_logging = true
     #chef.add_recipe "mysql"
