@@ -11,6 +11,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "ta-debian-7-wheezy"
+  
+  # Ensure chef is installed, requires plugin vagrant plugin install vagrant-omnibus 
+  config.omnibus.chef_version = :latest
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -95,7 +98,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       'rvm' => {
         'installer_url' => 'https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer',
         'branch' => 'none',
-        'version' => '1.3.0',
+        'version' => '1.17.10',
         'user_installs' => [{        
           'user' => 'rubygems_app',
           'default_ruby' => 'ruby-2.0.0@rubygems_app',
@@ -103,9 +106,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
                 { 'name'    => 'bundler',
                   'version' => '1.3.0'
                 },
-            #    { 'name'    => 'unicorn',
-            #      'version' => '4.8.3'
-            #    },
+                { 'name'    => 'unicorn',
+                  'version' => '4.8.3'
+                },
             #    { 'name'    => 'rake' },
             #    { 'name'    => 'minitest', 
             #      'version' => '5.3.5'},
@@ -117,6 +120,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       }
     }
     chef.run_list = ["recipe[rvm::user]","recipe[rubygems_app]"]
+    #chef.run_list = ["recipe[rubygems_app]","recipe[rvm::user]"]
     chef.verbose_logging = true
     #chef.add_recipe "mysql"
     #chef.add_role "web"
