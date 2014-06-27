@@ -100,8 +100,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         'branch' => 'none',
         'version' => '1.17.10',
         'user_installs' => [{        
-          'user' => 'rubygems_app',
-          'default_ruby' => 'ruby-2.0.0@rubygems_app',
+          'user' => 'rails_app',
+          'default_ruby' => 'ruby-2.0.0@rails_app',
           'global_gems'     => [
                 { 'name'    => 'bundler',
                   'version' => '1.3.0'
@@ -113,13 +113,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         }]
       },
       #default_ruby in rvm::user_install has to be same as rails_app name (it name of the user)
-      'rubygems_app' => {
+      'rails_app' => {
         'name' => 'rails_app',
         'domain' => 'rails_app.com',
         'git_repository' => 'https://github.com/erich/simple-rails'
       }
     }
-    chef.run_list = ["recipe[rubygems_app::basic_structure]","recipe[rvm::user]","recipe[rubygems_app]"]
+    chef.run_list = ["recipe[rails_app::basic_structure]","recipe[rvm::user]","recipe[rails_app::default]"]
     chef.verbose_logging = true
     #chef.add_recipe "mysql"
     #chef.add_role "web"
